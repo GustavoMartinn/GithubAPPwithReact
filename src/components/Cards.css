@@ -1,0 +1,99 @@
+body.perfil {
+    height: 100%;
+    width: 500px;
+    background-color: #181818;
+}
+
+div.perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin: 2px;
+}
+
+button.perfil {
+    color: #fff;
+    margin: 30px 0;
+    display: grid;
+    font-size: 30px;
+    height: 80%;
+    width: auto;
+    background-color: #4b4b4b;
+    border: none;
+}
+
+img.perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    border-radius: 50%;
+
+}
+
+body.perfil {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 5% 20% 3% 3% 3% 20% 10%;
+}
+
+.perfil.nomeUsuario {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 15px;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.perfil.sair {
+    font-size: 15px;
+    align-items: flex-start;
+    justify-content: right;
+}
+
+.perfil.imagem {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.perfil.nome {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.perfil.email {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.perfil.local {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+button > div.num {
+    font-size: 50px;
+}
+
+.perfil.bio {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    align-items: flex-start;
+    justify-content: left;
+    font-size: 30px;
+}
+
+.perfil.bioInfo {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    align-items: flex-start;
+    justify-content: left;
+    margin: 0 10px 10px 10px;
+}

@@ -1,0 +1,18 @@
+.search {
+    display: inline-block;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+input{
+    font-size: 2rem;
+    border: 1px solid #000;
+    border-radius: 12px;
+    width: 250px;
+    padding: 5px 0;    
+}
+
+input[type=submit]{
+    background-color: #ff0;
+}
+
