@@ -1,7 +1,19 @@
+body {
+    font-weight: 300;
+    font-size: 2rem;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
 .search {
     display: inline-block;
     justify-content: center;
     padding: 20px 0;
+}
+
+img {
+    align-items: center;
 }
 
 input{

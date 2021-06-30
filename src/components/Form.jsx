@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import './Form.css'
 
@@ -19,16 +19,28 @@ class Formulario extends React.Component {
         // console.log('Um nome foi enviado: ' + this.state.value);
         // <Link to={`/Cards/${this.state.value}`}></Link>
         event.preventDefault();
-        this.props.history.push(`/usuario/${this.state.value}`)
+
+        if(this.state.value !== ''){
+            fetch(`https://api.github.com/users/${this.state.value}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.message) {
+                }
+                else {
+                    this.props.history.push(`/usuario/${this.state.value}`)
+                }
+            })
+        }
     }
-  
+
+    
     render() {
         return(
             <div className="App">
                 <div className="search">
-                    <img src="https://image.flaticon.com/icons/png/512/733/733609.png" width="150" height="150"></img>
+                    <img src="https://image.flaticon.com/icons/png/512/733/733609.png" alt='' width="150" height="150"></img>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="Usuário" value={this.state.value} onChange={this.handleChange} ></input><br/><br/>
+                        <input type="text" placeholder='Usuario' value={this.state.value} onChange={this.handleChange} ></input><br/><br/>
                         <input type="submit" value="ENVIAR"></input>
                     </form>
                 </div>

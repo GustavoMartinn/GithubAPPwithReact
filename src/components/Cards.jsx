@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Image, Icon } from 'semantic-ui-react'
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import './Cards.css'
 
 function CardsInfo() {
@@ -16,7 +15,6 @@ function CardsInfo() {
     const [bio, setBio] = useState('');
     const [email, setEmail] = useState('');
     const [local, setLocal] = useState('');
-    const [error, setError] = useState(' ')
     
     const user = String(window.location.pathname).slice(9)
     
@@ -47,32 +45,26 @@ function CardsInfo() {
         fetch(`https://api.github.com/users/${userInfo}`)
         .then(res => res.json())
         .then(data => {
-            if (data.message) {
-                setError(data.message)
-            }
-            else {
-                setError(null)
                 setData(data)
-            }
-        })
+            })
     }
     
     enviaBusca(user)
 
-    const chamaSeguidores = () => {
-        this.props.history.push(`/seguidores/${user}`)
-    }
+    let sairLink = `/`
     
     return(
         <body class="perfil">
             <div class="perfil nomeUsuario">
                 {nomeUsuario}
             </div>
-            <div class="perfil sair">
-                Sair
-            </div>
+            <Link to={sairLink}>
+                <div class="perfil sair">
+                    Sair
+                </div>
+            </Link>
             <div class="perfil imagem">
-                <img class="perfil" src={avatar} />
+                <img class="perfil" alt='' src={avatar} />
             </div>
             <div class="perfil nome">
                 {nome}
@@ -83,24 +75,30 @@ function CardsInfo() {
             <div class="perfil local">
                 {local}
             </div>
-            <button class="perfil seguidores">
-                <div class="perfil num">
-                    {seguidores}
-                </div>
-                Seguidores
-            </button>
-            <button class="perfil repos">
-                <div class="perfil num">
-                    {repos}
-                </div>
-                Repositorios
-            </button>
-            <button class="perfil seguindo">
-                <div class="perfil num">
-                    {repos}
-                </div>
-                Seguindo
-            </button>
+            <Link>
+                <button class="perfil seguidores">
+                    <div class="perfil num">
+                        {seguidores}
+                    </div>
+                    Seguidores
+                </button>
+            </Link>
+            <Link>
+                <button class="perfil repos">
+                    <div class="perfil num">
+                        {seguindo}
+                    </div>
+                    Seguindo
+                </button>
+            </Link>
+            <Link>
+                <button class="perfil seguindo">
+                    <div class="perfil num">
+                        {repos}
+                    </div>
+                    Repositorios
+                </button>
+            </Link>
             <div class="perfil bio">
                 Bio
             </div>
@@ -108,12 +106,7 @@ function CardsInfo() {
                 {bio}
             </div>
         </body>)
-}
 
-// class Cards extends React.Component {
-//     render() {
-//         CardsInfo()
-//         // console.log((String(window.location.pathname).slice(7)))
-// }
+}
 
 export default withRouter(CardsInfo)
