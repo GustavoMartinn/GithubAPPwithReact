@@ -1,7 +1,7 @@
 body.perfil {
     height: 100%;
     width: 500px;
-    background-color: #181818;
+    background: linear-gradient(#181818 15.04%, #1d1d1d 11%);
 }
 
 div.perfil {
@@ -18,8 +18,8 @@ button.perfil {
     display: grid;
     font-size: 30px;
     height: 80%;
-    width: auto;
-    background-color: #4b4b4b;
+    width: 100%;
+    background-color: #414141;
     border: none;
 }
 
@@ -42,19 +42,22 @@ body.perfil {
     grid-column-start: 1;
     grid-column-end: 3;
     font-size: 15px;
-    align-items: flex-start;
-    justify-content: left;
+    margin-top: 13px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
+
 .perfil.sair {
+    color: #fff;
     font-size: 15px;
-    align-items: flex-start;
-    justify-content: right;
+    justify-content: flex-end;
 }
 
 .perfil.imagem {
     grid-column-start: 1;
     grid-column-end: 4;
+    background: linear-gradient(#181818 50%, #1d1d1d 50%);
 }
 
 .perfil.nome {
